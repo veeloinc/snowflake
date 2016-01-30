@@ -60,7 +60,7 @@ import React,
 from 'react-native';
 
 /**
- * The 4 states were interested in
+ * The 4 states we're interested in
  */
 const {
   LOGIN_STATE_LOGOUT,

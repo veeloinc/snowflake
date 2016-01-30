@@ -53,20 +53,18 @@ var LoginForm = React.createClass({
    * 
    */
   render() {
-
     let options = {
       auto: 'placeholders',
       fields: {
-        
       }
     };
 
     let username = {
       label: 'Username',
-      maxLength: 12,
+      maxLength: 32,
       editable: !this.props.form.isFetching,
       hasError: this.props.form.fields.usernameHasError,
-      error: 'Must have 6-12 characters and/or numbers'
+      error: 'Must have 6-32 characters and/or numbers'
     };
     
     let email = {
@@ -81,17 +79,17 @@ var LoginForm = React.createClass({
 
     let password = {
       label: 'Password',
-      maxLength: 12,
+      maxLength: 32,
       secureTextEntry: secureTextEntry,
       editable: !this.props.form.isFetching,
       hasError: this.props.form.fields.passwordHasError,
-      error: 'Must have 6-12 characters with at least 1 number and 1 special character'
+      error: 'Must have 6-32 characters with at least 1 number and 1 special character'
     };
 
     let passwordAgain= {
       label: 'Please enter password again',
       secureTextEntry: secureTextEntry,
-      maxLength: 12,
+      maxLength: 32,
       editable: !this.props.form.isFetching,
       hasError: this.props.form.fields.passwordAgainHasError,
       error: 'Passwords must match'
@@ -152,10 +150,8 @@ var LoginForm = React.createClass({
             value={this.props.value}
             onChange={this.props.onChange}
       />
-
     );
   }
 });
 
 module.exports = LoginForm;
-

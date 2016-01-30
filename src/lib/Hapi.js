@@ -202,7 +202,7 @@ export default class Hapi extends Backend{
    * for this user, update their record
    * the data is already in JSON format
    *
-   * @param userId  _id of Parse.com
+   * @param userId  _id
    * @param data object:
    * {username: "barton", email: "barton@foo.com"}
    */
@@ -227,7 +227,7 @@ export default class Hapi extends Backend{
   }  
   /**
    * ### _fetch
-   * A generic function that prepares the request to Parse.com
+   * A generic function that prepares the request
    */  
   async _fetch(opts) {
     opts = _.extend({
@@ -257,7 +257,6 @@ export default class Hapi extends Backend{
     }
 
     return await fetch(this.API_BASE_URL + opts.url, reqOpts);
-
   }
 };
 
