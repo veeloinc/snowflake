@@ -1,10 +1,3 @@
-/**
- * # Parse.js
- * 
- * This class interfaces with Parse.com using the rest api
- * see [https://parse.com/docs/rest/guide](https://parse.com/docs/rest/guide)
- *
- */
 'use string';
 /**
  * ## Async support
@@ -21,14 +14,14 @@ import CONFIG from './config';
 import _ from 'underscore';
 import Backend from './Backend';
 
-export default class Hapi extends Backend{
+export default class Veelo extends Backend{
   /**
-   * ## Hapi.js client
+   * ## Veelo client
    *
    *
    * @throws tokenMissing if token is undefined
    */
-  constructor( token) {
+  constructor(token) {
     super(token);
     if (!_.isNull(token) && _.isUndefined(token.sessionToken)) {
       throw 'TokenMissing';
@@ -36,8 +29,7 @@ export default class Hapi extends Backend{
     this._sessionToken =
       _.isNull(token) ?  null :  token.sessionToken.sessionToken;
     
-    this.API_BASE_URL= CONFIG.backend.hapiLocal ?
-      CONFIG.HAPI.local.url : CONFIG.HAPI.remote.url;
+    this.API_BASE_URL= CONFIG.VEELO.url;
   }
   /**
    * ### signup
@@ -259,4 +251,3 @@ export default class Hapi extends Backend{
     return await fetch(this.API_BASE_URL + opts.url, reqOpts);
   }
 };
-

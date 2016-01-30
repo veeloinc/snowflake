@@ -26,7 +26,7 @@ export default class Backend {
    *
    * @throws tokenMissing if token is undefined
    */
-  constructor( token) {
+  constructor(token) {
   }
   /**
    * ### signup
@@ -117,6 +117,4 @@ export default class Backend {
    */
   async updateProfile(userId,data) {
   }  
-
 };
-
