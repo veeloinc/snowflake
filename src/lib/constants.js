@@ -41,6 +41,8 @@ export default keyMirror({
   GET_PROFILE_FAILURE: null,
 
   ON_PROFILE_FORM_FIELD_CHANGE: null,
+
+  LOAD_CONTENT: null,
   
   PROFILE_UPDATE_REQUEST: null,
   PROFILE_UPDATE_SUCCESS: null,
