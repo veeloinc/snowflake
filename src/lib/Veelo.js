@@ -85,7 +85,7 @@ export default class Veelo extends Backend{
   async login(data) {
     return await this._fetch({
       method: 'POST',
-      url: '/account/login',
+      url: '/api/user/v2/auth/broken',
       body: data
     })
       .then((response) => {
@@ -247,7 +247,7 @@ export default class Veelo extends Backend{
     if (opts.body) {
       reqOpts.body = JSON.stringify(opts.body);
     }
-
+    console.log(`fetching ${this.API_BASE_URL} + ${opts.url}`);
     return await fetch(this.API_BASE_URL + opts.url, reqOpts);
   }
 };
