@@ -51,7 +51,8 @@ function getInitialState() {
     auth: new authInitialState,
     device: (new deviceInitialState).set('isMobile',true),
     global: (new globalInitialState),
-    profile: new profileInitialState
+    profile: new profileInitialState,
+    content: new contentInitialState
   };
   return _initState;
 }

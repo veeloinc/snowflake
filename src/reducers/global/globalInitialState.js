@@ -30,6 +30,7 @@ var InitialState = Record({
   currentUser: null,
   showState: false,
   currentState: null,
-  store: null
+  store: null,
+  content: null
 });
 export default InitialState;
