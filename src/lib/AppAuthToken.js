@@ -43,14 +43,11 @@ export default class AppAuthToken {
    * promise so, have to be careful.
    */
   getSessionToken(sessionToken) {
-    if (sessionToken) {
       return store.save(this.SESSION_TOKEN_KEY,{
-          sessionToken: sessionToken
+          sessionToken: 'hard-coded'
       }).then(() => {
         return store.get(this.SESSION_TOKEN_KEY);
       });
-    }
-    return store.get(this.SESSION_TOKEN_KEY);
   }
   /**
    * ### deleteSessionToken

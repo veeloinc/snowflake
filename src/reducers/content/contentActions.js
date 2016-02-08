@@ -11,9 +11,12 @@ var rawContent = {"files": [{"type": "file", "modified": "2015-12-03T01:25:11.05
 // TODO - get the above content data to load on the page.
 // TODO - proposal. Have a button on the page. When the button is pressed, call this loadContent Action, and have it update the page with a list of pak names above.
 
-export function loadContent() {
+function loadContent() {
     return {
         type: LOAD_CONTENT,
         payload: rawContent
     }
 }
+
+
+export default loadContent;

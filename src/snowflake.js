@@ -34,6 +34,7 @@ import authInitialState from './reducers/auth/authInitialState';
 import deviceInitialState from './reducers/device/deviceInitialState';
 import globalInitialState from './reducers/global/globalInitialState';
 import profileInitialState from './reducers/profile/profileInitialState';
+import contentInitialState from './reducers/content/contentInitialState';
 
 /**
  *  The version of the app but not  displayed yet
