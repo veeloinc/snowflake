@@ -10,12 +10,11 @@ const {Record} = require('immutable');
  * fields it contains.
  */
 const Form = Record({
-  state: LOGIN_STATE_REGISTER,
   disabled: false,
   error: null,
   fields: new (Record({
     search: '',
-    searchHasError: false,
+    searchHasError: false
   }))
 });
 

@@ -30,12 +30,10 @@ import {setStore} from './reducers/global/globalActions';
  * initial state
  */
 
-import authInitialState from './reducers/auth/authInitialState';
 import deviceInitialState from './reducers/device/deviceInitialState';
 import globalInitialState from './reducers/global/globalInitialState';
 import profileInitialState from './reducers/profile/profileInitialState';
-import contentInitialState from './reducers/content/contentInitialState';
-import catalogSearchInitialState from './reducers/resourceSearch/resourceSearchInitialState';
+import resourceSearchInitialState from './reducers/resourceSearch/resourceSearchInitialState';
 
 /**
  *  The version of the app but not  displayed yet
@@ -50,11 +48,10 @@ var VERSION='0.0.10';
  */
 function getInitialState() {
   const _initState = {
-    auth: new authInitialState,
     device: (new deviceInitialState).set('isMobile',true),
     global: (new globalInitialState),
     profile: new profileInitialState,
-    content: new contentInitialState
+    resourceSearch: new resourceSearchInitialState
   };
   return _initState;
 }

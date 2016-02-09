@@ -9,10 +9,6 @@ export default keyMirror({
   SESSION_TOKEN_FAILURE: null,
   
   ON_LOGIN_STATE_CHANGE: null,
-  LOGIN_STATE_LOGOUT: null,
-  LOGIN_STATE_REGISTER: null,
-  LOGIN_STATE_LOGIN: null,
-  LOGIN_STATE_FORGOT_PASSWORD: null,
   
   ON_AUTH_FORM_FIELD_CHANGE: null,
   SIGNUP_REQUEST: null,

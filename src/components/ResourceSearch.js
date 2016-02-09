@@ -19,6 +19,14 @@ const t = require('tcomb-form-native');
 let Form = t.form.Form;
 
 class ResourceSearch extends Component {
+
+
+  getInitialState() {
+    return {
+      form: Form
+    }
+  }
+
   render() {
     let options = {
       auto: 'placeholders',
@@ -27,7 +35,7 @@ class ResourceSearch extends Component {
           label: 'Search',
           maxLength: 32,
           // editable: !this.props.form.isFetching,
-          hasError: this.props.form.fields.searchHasError,
+          // hasError: this.state.form.fields.searchHasError,
           error: 'Must be numbers'
         }
       }
