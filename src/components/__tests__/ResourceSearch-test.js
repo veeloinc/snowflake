@@ -26,31 +26,31 @@ let Form = t.form.Form;
  */
 describe('ResourceSearch', () => {
     function renderResourceSearch(props) {
-      const renderer = utils.createRenderer();
-      renderer.render(<ResourceSearch {...props}/>);
-      const output = renderer.getRenderOutput();
+        const renderer = utils.createRenderer();
+        renderer.render(<ResourceSearch {...props}/>);
+        const output = renderer.getRenderOutput();
 
-      return {
-        props,
-        output,
-        renderer
-      };
+        return {
+            props,
+            output,
+            renderer
+        };
     }
 
     it("Errors on non-numeric input", () => {
         let form = {
-          fields: {
-            searchHasError: false
-          }
+            fields: {
+                searchHasError: false
+            }
         };
 
         let value = {
-          search: 'not a number'
+            search: 'not a number'
         };
 
         let props = {
-          form: form,
-          value: value
+            form: form,
+            value: value
         };
 
         let {output} = renderResourceSearch(props);
