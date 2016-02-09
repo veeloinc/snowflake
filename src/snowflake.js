@@ -35,6 +35,7 @@ import deviceInitialState from './reducers/device/deviceInitialState';
 import globalInitialState from './reducers/global/globalInitialState';
 import profileInitialState from './reducers/profile/profileInitialState';
 import contentInitialState from './reducers/content/contentInitialState';
+import catalogSearchInitialState from './reducers/resourceSearch/resourceSearchInitialState';
 
 /**
  *  The version of the app but not  displayed yet

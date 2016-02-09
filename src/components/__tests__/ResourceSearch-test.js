@@ -50,7 +50,7 @@ describe('ResourceSearch', () => {
         };
 
         let value = {
-          search: ''
+          search: 'not a number'
         };
 
         let props = {
@@ -60,6 +60,8 @@ describe('ResourceSearch', () => {
 
         let {output} = renderResourceSearch(props);
         expect(output.type).toEqual(Form);
+
+        expect(output.options.fields.search.hasError).toBeTruthy();
 
     });
 
