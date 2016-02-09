@@ -20,11 +20,11 @@ let Form = t.form.Form;
 
 class ResourceSearch extends Component {
 
-
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       form: Form
-    }
+    };
   }
 
   render() {
