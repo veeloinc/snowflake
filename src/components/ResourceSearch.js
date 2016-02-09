@@ -20,7 +20,34 @@ let Form = t.form.Form;
 
 class ResourceSearch extends Component {
   render() {
-    return <Text>Hello world from search</Text>;
+    let options = {
+      auto: 'placeholders',
+      fields: {
+        search: {
+          label: 'Search',
+          maxLength: 32,
+          // editable: !this.props.form.isFetching,
+          hasError: this.props.form.fields.searchHasError,
+          error: 'Must be numbers'
+        }
+      }
+    };
+
+    let searchForm = t.struct({
+      search: t.String
+    });
+
+
+    return (
+      <Form
+        ref="form"
+        type={searchForm}
+        options={options}
+        value={this.props.value}
+        onChange={this.props.onChange}
+      />
+    );
+
   }
 }
 
