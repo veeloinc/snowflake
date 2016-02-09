@@ -1,15 +1,10 @@
-
 'use strict';
-
+/* globals jest,expect,it,describe */
 jest.autoMockOff();
 
+require('react-native');
 
-const React = require('react-native');
-
-const utils = require('react-addons-test-utils');
-
-
-
+var utils = require('react-addons-test-utils');
 
 /**
  * ## Under test
@@ -62,8 +57,5 @@ describe('ResourceSearch', () => {
         expect(output.type).toEqual(Form);
 
         expect(output.options.fields.search.hasError).toBeTruthy();
-
     });
-
-
 });
