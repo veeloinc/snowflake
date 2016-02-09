@@ -18,9 +18,7 @@ let Form = t.form.Form;
 class ResourceSearch extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            form: Form
-        };
+        this.state = this.context.store.getState().resourceSearch;
     }
 
     render() {

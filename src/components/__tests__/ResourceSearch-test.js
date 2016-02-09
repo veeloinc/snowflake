@@ -2,7 +2,7 @@
 /* globals jest,expect,it,describe */
 jest.autoMockOff();
 
-require('react-native');
+var React = require('react-native');
 
 var utils = require('react-addons-test-utils');
 

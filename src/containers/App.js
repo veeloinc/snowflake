@@ -76,12 +76,11 @@ function mapDispatchToProps(dispatch) {
  */
 class App extends Component {
     render() {
-        let component = <View>
-            <ResourceSearch foo="foo"/>
-            <ResourceCatalog/>
-        </View>;
         return (
-            component
+            <View>
+                <ResourceSearch foo="foo"/>
+                <ResourceCatalog/>
+            </View>
         );
     }
 }

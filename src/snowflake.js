@@ -47,13 +47,13 @@ var VERSION='0.0.10';
  * @returns {Object} object with 4 keys
  */
 function getInitialState() {
-  const _initState = {
-    device: (new deviceInitialState).set('isMobile',true),
-    global: (new globalInitialState),
-    profile: new profileInitialState,
-    resourceSearch: new resourceSearchInitialState
-  };
-  return _initState;
+    const _initState = {
+        device: (new deviceInitialState).set('isMobile',true),
+        global: (new globalInitialState),
+        profile: new profileInitialState,
+        resourceSearch: new resourceSearchInitialState
+    };
+    return _initState;
 }
 /**
  * ## Native
@@ -65,27 +65,27 @@ function getInitialState() {
  */
 export default function native(platform) {
 
-  let Snowflake = React.createClass( {
-    render() {
-      const store = configureStore(getInitialState());
-      store.dispatch(setPlatform(platform));
-      store.dispatch(setVersion(VERSION));
-      store.dispatch(setStore(store));
-      /**
-       * Provider wrap the ```App``` with a ```Provider``` and both
-       * have a ```store```
-       */
-      return (
-        <Provider store={store}>
-          <App/>
-        </Provider>
-      );
+    let Snowflake = React.createClass( {
+        render() {
+            const store = configureStore(getInitialState());
+            store.dispatch(setPlatform(platform));
+            store.dispatch(setVersion(VERSION));
+            store.dispatch(setStore(store));
+            /**
+             * Provider wrap the ```App``` with a ```Provider``` and both
+             * have a ```store```
+             */
+            return (
+                <Provider store={store}>
+                    <App/>
+                </Provider>
+            );
 
-    }
-  });
-  /**
-   * registerComponent to the AppRegistery and off we go....
-   */
+        }
+    });
+    /**
+     * registerComponent to the AppRegistery and off we go....
+     */
 
-  AppRegistry.registerComponent('snowflake', () => Snowflake);
+    AppRegistry.registerComponent('snowflake', () => Snowflake);
 }

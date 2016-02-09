@@ -10,12 +10,12 @@ const {Record} = require('immutable');
  * fields it contains.
  */
 const Form = Record({
-  disabled: false,
-  error: null,
-  fields: new (Record({
-    search: '',
-    searchHasError: false
-  }))
+    disabled: false,
+    error: null,
+    fields: new (Record({
+        search: '',
+        searchHasError: false
+    }))
 });
 
 /**
@@ -23,7 +23,6 @@ const Form = Record({
  * The form is set
  */
 var InitialState = Record({
-  form: new Form
+    form: new Form
 });
 export default InitialState;
-

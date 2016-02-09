@@ -4,7 +4,7 @@
  * This class combines all the reducers into one
  * 
  */
-'use string';
+'use strict';
 /**
  * ## Imports
  * 
@@ -24,10 +24,10 @@ import { combineReducers } from 'redux';
  * EVERY TIME there is a basic action
  */ 
 const rootReducer = combineReducers({
-  device,
-  global,
-  profile,
-  resourceSearch
+    device,
+    global,
+    profile,
+    resourceSearch
 });
 
 export default rootReducer;

@@ -6,22 +6,14 @@
  */
 const React = require('react-native');
 const {
-  Component,
-  Text,
-  View,
-  PropTypes
-} = React;
-
-/**
- *  The fantastic little form library
- */
-const t = require('tcomb-form-native');
-let Form = t.form.Form;
+    Component,
+    Text
+    } = React;
 
 class ResourceCatalog extends Component {
-  render() {
-    return <Text>Hello world from the catalog</Text>;
-  }
+    render() {
+        return <Text>Hello world from the catalog</Text>;
+    }
 }
 
 module.exports = ResourceCatalog;
