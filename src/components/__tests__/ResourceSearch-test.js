@@ -38,24 +38,20 @@ describe('ResourceSearch', () => {
     }
 
     it("Errors on non-numeric input", () => {
-        let form = {
+        let formOptions = {
             fields: {
                 searchHasError: false
             }
         };
 
-        let value = {
-            search: 'not a number'
-        };
-
         let props = {
-            form: form,
-            value: value
+            value: 'aoeu',
+            formOptions: formOptions
         };
 
         let {output} = renderResourceSearch(props);
         expect(output.type).toEqual(Form);
-
-        expect(output.options.fields.search.hasError).toBeTruthy();
+        console.log('fields output', output.props.options.fields);
+        expect(output.props.options.fields.search.hasError).toBeTruthy();
     });
 });

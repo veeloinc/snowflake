@@ -7,6 +7,7 @@
 const React = require('react-native');
 const {
     Component,
+    PropTypes
     } = React;
 
 /**
@@ -16,9 +17,12 @@ const t = require('tcomb-form-native');
 let Form = t.form.Form;
 
 class ResourceSearch extends Component {
-    constructor(props) {
-        super(props);
-        this.state = this.context.store.getState().resourceSearch;
+    get propTypes() {
+        return {
+            value: PropTypes.string,
+            onChange: PropTypes.func,
+            formOptions: PropTypes.object
+        };
     }
 
     render() {
@@ -29,14 +33,14 @@ class ResourceSearch extends Component {
                     label: 'Search',
                     maxLength: 32,
                     // editable: !this.props.foo,
-                    hasError: this.state.form.fields.searchHasError,
+                    hasError: this.props.formOptions.fields.searchHasError,
                     error: 'Must be numbers'
                 }
             }
         };
 
         let searchForm = t.struct({
-            search: t.String
+            search: t.Number
         });
 
 
