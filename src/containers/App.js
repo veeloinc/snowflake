@@ -76,10 +76,9 @@ function mapDispatchToProps(dispatch) {
  */
 class App extends Component {
     render() {
-        let formOptions = this.context.store.getState().resourceSearch;
         return (
             <View>
-                <ResourceSearch formOptions={formOptions}/>
+                <ResourceSearch/>
                 <ResourceCatalog/>
             </View>
         );

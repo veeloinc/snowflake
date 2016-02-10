@@ -8,7 +8,9 @@ const React = require('react-native');
 const {
     Component,
     PropTypes
-    } = React;
+} = React;
+
+import resourceSearchInitialState from '../reducers/resourceSearch/resourceSearchInitialState';
 
 /**
  *  The fantastic little form library
@@ -17,7 +19,12 @@ const t = require('tcomb-form-native');
 let Form = t.form.Form;
 
 class ResourceSearch extends Component {
-    get propTypes() {
+    static get defaultProps() {
+        var props = new resourceSearchInitialState;
+        return {formOptions: props.form};
+    }
+
+    static get propTypes() {
         return {
             value: PropTypes.string,
             onChange: PropTypes.func,

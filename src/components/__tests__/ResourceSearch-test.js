@@ -40,7 +40,7 @@ describe('ResourceSearch', () => {
     it("Errors on non-numeric input", () => {
         let formOptions = {
             fields: {
-                searchHasError: false
+                searchHasError: true
             }
         };
 
