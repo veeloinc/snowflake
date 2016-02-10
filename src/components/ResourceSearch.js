@@ -6,9 +6,15 @@
  */
 const React = require('react-native');
 const {
+    View,
     Component,
     PropTypes
 } = React;
+
+/**
+ * The platform neutral button
+ */
+const Button = require('apsl-react-native-button');
 
 import resourceSearchInitialState from '../reducers/resourceSearch/resourceSearchInitialState';
 
@@ -18,10 +24,11 @@ import resourceSearchInitialState from '../reducers/resourceSearch/resourceSearc
 const t = require('tcomb-form-native');
 let Form = t.form.Form;
 
-class ResourceSearch extends Component {
+export default class ResourceSearch extends Component {
     static get defaultProps() {
-        var props = new resourceSearchInitialState;
-        return {formOptions: props.form};
+        return {
+            formOptions: (new resourceSearchInitialState).form
+        };
     }
 
     static get propTypes() {
@@ -30,6 +37,14 @@ class ResourceSearch extends Component {
             onChange: PropTypes.func,
             formOptions: PropTypes.object
         };
+    }
+
+    onChange() {
+
+    }
+
+    onButtonPress() {
+
     }
 
     render() {
@@ -49,19 +64,23 @@ class ResourceSearch extends Component {
         let searchForm = t.struct({
             search: t.Number
         });
-
+        var self = this;
 
         return (
-            <Form
-                ref="form"
-                type={searchForm}
-                options={options}
-                value={this.props.value}
-                onChange={this.props.onChange}
-            />
+            <View>
+                <Form
+                    ref="form"
+                    type={searchForm}
+                    options={options}
+                    value={this.props.value}
+                    onChange={this.onChange.bind(self)}
+                />
+                <Button buttonText="Search"
+                        isDisabled={!this.props.formOptions.isValid}
+                        onPress={this.onButtonPress.bind(self)}/>
+
+            </View>
         );
 
     }
 }
-
-module.exports = ResourceSearch;

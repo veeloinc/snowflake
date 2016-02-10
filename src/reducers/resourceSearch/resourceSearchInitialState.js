@@ -11,6 +11,7 @@ const {Record} = require('immutable');
  */
 const Form = Record({
     disabled: false,
+    isValid: true,
     error: null,
     fields: new (Record({
         search: '',

@@ -51,7 +51,22 @@ describe('ResourceSearch', () => {
 
         let {output} = renderResourceSearch(props);
         expect(output.type).toEqual(Form);
-        console.log('fields output', output.props.options.fields);
         expect(output.props.options.fields.search.hasError).toBeTruthy();
+    });
+
+    describe('onChange()', () => {
+        it('sends a setSearchText action', () => {
+            let props = {
+
+            };
+            let {output} = renderResourceSearch(props);
+
+        });
+    });
+
+    describe('onButtonPress()', () => {
+        it('sends a filterResults action', () => {
+
+        });
     });
 });
