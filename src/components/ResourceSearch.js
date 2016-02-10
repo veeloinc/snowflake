@@ -15,16 +15,14 @@ const {
  */
 const Button = require('apsl-react-native-button');
 
-import resourceSearchInitialState from '../reducers/resourceSearch/resourceSearchInitialState';
-
 /**
  *  The fantastic little form library
  */
 const t = require('tcomb-form-native');
 let Form = t.form.Form;
 
-const ResourceSearch = ({value, onChange, onButtonPress, formOptions}) => {
-    let options = {
+function constructOptionsForForm(formOptions) {
+    return {
         auto: 'placeholders',
         fields: {
             search: {
@@ -35,11 +33,14 @@ const ResourceSearch = ({value, onChange, onButtonPress, formOptions}) => {
             }
         }
     };
+}
+
+const ResourceSearch = ({value, onChange, onButtonPress, formOptions}) => {
+    var options = constructOptionsForForm(formOptions);
 
     let searchForm = t.struct({
         search: t.Number
     });
-
     return (
         <View>
             <Form type={searchForm}

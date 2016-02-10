@@ -33,6 +33,11 @@ import React,
 }
     from 'react-native';
 
+const {
+    SEARCH_NOW,
+    SEARCH_VALUE_UPDATE
+} = require('../lib/constants').default;
+
 /**
  * ## Actions
  * 3 of our actions will be available as ```actions```
@@ -67,6 +72,12 @@ function mapDispatchToProps(dispatch) {
 
     return {
         actions: bindActionCreators(creators, dispatch),
+        onSearchChange: (value) => {
+            dispatch({type: SEARCH_VALUE_UPDATE, value: value.search})
+        },
+        onSearch: () => {
+            dispatch({type: SEARCH_NOW});
+        },
         dispatch
     };
 }
@@ -75,22 +86,13 @@ function mapDispatchToProps(dispatch) {
  * ## App class
  */
 class App extends Component {
-    onSearch() {
-        console.log('in onSearch');
-    }
-
-    onSearchChange() {
-        console.log('in onSearchChange');
-    }
-
     render() {
-        let self = this;
         return (
             <View>
                 <ResourceSearch
                     value={this.props.resourceSearch.search}
-                    onChange={this.onSearchChange.bind(self)}
-                    onButtonPress={this.onSearch.bind(self)}
+                    onChange={this.props.onSearchChange}
+                    onButtonPress={this.props.onSearch}
                     formOptions={this.props.resourceSearch.form}/>
                 <ResourceCatalog/>
             </View>

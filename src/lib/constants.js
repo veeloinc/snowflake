@@ -26,6 +26,9 @@ export default keyMirror({
   LOGGED_IN: null,
   LOGGED_OUT: null,
 
+  SEARCH_NOW: null,
+  SEARCH_VALUE_UPDATE: null,
+
   SET_SESSION_TOKEN: null,
 
   RESET_PASSWORD_REQUEST: null,
