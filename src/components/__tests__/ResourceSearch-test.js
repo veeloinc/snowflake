@@ -1,5 +1,5 @@
 'use strict';
-/* globals jest,expect,it,describe */
+/* globals jest,expect,it,describe,spyOn */
 jest.autoMockOff();
 
 var React = require('react-native');
@@ -37,7 +37,7 @@ describe('ResourceSearch', () => {
         };
     }
 
-    it("Errors on non-numeric input", () => {
+    it("can have an error", () => {
         let formOptions = {
             fields: {
                 searchHasError: true
@@ -52,21 +52,5 @@ describe('ResourceSearch', () => {
         let {output} = renderResourceSearch(props);
         expect(output.type).toEqual(Form);
         expect(output.props.options.fields.search.hasError).toBeTruthy();
-    });
-
-    describe('onChange()', () => {
-        it('sends a setSearchText action', () => {
-            let props = {
-
-            };
-            let {output} = renderResourceSearch(props);
-
-        });
-    });
-
-    describe('onButtonPress()', () => {
-        it('sends a filterResults action', () => {
-
-        });
     });
 });

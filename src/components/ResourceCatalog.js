@@ -4,16 +4,13 @@
  *
  * React
  */
-const React = require('react-native');
+import React from 'react-native';
 const {
-    Component,
     Text
-    } = React;
+} = React;
 
-class ResourceCatalog extends Component {
-    render() {
-        return <Text>Hello world from the catalog</Text>;
-    }
-}
+const ResourceCatalog = () => {
+    return <Text>Hello world from the catalog</Text>;
+};
 
-module.exports = ResourceCatalog;
+export default ResourceCatalog;

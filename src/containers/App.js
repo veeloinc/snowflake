@@ -45,7 +45,7 @@ const actions = [
 import ErrorAlert from '../components/ErrorAlert';
 
 /**
- *  Save that state
+ *  Save all state as props (MC: ?!)
  */
 function mapStateToProps(state) {
     return {
@@ -75,10 +75,23 @@ function mapDispatchToProps(dispatch) {
  * ## App class
  */
 class App extends Component {
+    onSearch() {
+        console.log('in onSearch');
+    }
+
+    onSearchChange() {
+        console.log('in onSearchChange');
+    }
+
     render() {
+        let self = this;
         return (
             <View>
-                <ResourceSearch/>
+                <ResourceSearch
+                    value={this.props.resourceSearch.search}
+                    onChange={this.onSearchChange.bind(self)}
+                    onButtonPress={this.onSearch.bind(self)}
+                    formOptions={this.props.resourceSearch.form}/>
                 <ResourceCatalog/>
             </View>
         );
