@@ -6,6 +6,10 @@
  * fieldValidation for validating the fields
  * formValidation for setting the form's valid flag
  */
+import {
+    LinkingIOS
+} from 'react-native';
+
 const fieldValidation = require('../../lib/fieldValidation').default;
 
 /**
@@ -40,13 +44,26 @@ export default function resourceSearchReducer(state = initialState, action) {
 
     switch(action.type) {
         case SEARCH_NOW:
-            fetch('https://www.google.com')
-                .then((resp) => {
-                    console.log('resp', resp);
+            //fetch('https://www.google.com')
+            //    .then((resp) => {
+            //        console.log('resp', resp);
+            //    })
+            //    .catch((err) => {
+            //        console.log('err', err);
+            //    });
+            let url = 'https://www.google.com';
+            console.log('Linking is', Linking);
+            LinkingIOS.canOpenURL(url)
+                .then(supported => {
+                    if (!supported) {
+                        console.log('Can\'t handle url: ' + url);
+                    } else {
+                        return LinkingIOS.openURL(url);
+                    }
                 })
-                .catch((err) => {
-                    console.log('err', err);
-                });
+                .catch(err => console.error('An error occurred', err));
+
+            //Linking.openURL(url).catch(err => console.error('An error occurred', err));
             return state.setIn(["currentSearchFilterOnResources"], state.form.fields.search);
 
         case SEARCH_VALUE_UPDATE:
