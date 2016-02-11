@@ -40,6 +40,13 @@ export default function resourceSearchReducer(state = initialState, action) {
 
     switch(action.type) {
         case SEARCH_NOW:
+            fetch('https://www.google.com')
+                .then((resp) => {
+                    console.log('resp', resp);
+                })
+                .catch((err) => {
+                    console.log('err', err);
+                });
             return state.setIn(["currentSearchFilterOnResources"], state.form.fields.search);
 
         case SEARCH_VALUE_UPDATE:

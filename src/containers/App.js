@@ -29,6 +29,10 @@ import * as globalActions from '../reducers/global/globalActions';
 
 import React,
 {
+    AppRegistry,
+    Text,
+    TouchableHighlight,
+    Image,
     Component,
     StyleSheet,
     View
@@ -50,17 +54,6 @@ const actions = [
 ];
 
 import ErrorAlert from '../components/ErrorAlert';
-
-
-var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  Image,
-} = React;
-
 
 var RNFS = require('../../node_modules/react-native-fs');
 
