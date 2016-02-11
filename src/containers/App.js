@@ -72,8 +72,8 @@ function mapDispatchToProps(dispatch) {
 
     return {
         actions: bindActionCreators(creators, dispatch),
-        onSearchChange: (value) => {
-            dispatch({type: SEARCH_VALUE_UPDATE, payload: {field:"search", value}})
+        onSearchChange: (formValues) => {
+            dispatch({type: SEARCH_VALUE_UPDATE, payload: {field: "search", value: formValues.search}})
         },
         onSearch: () => {
             dispatch({type: SEARCH_NOW});

@@ -55,7 +55,7 @@ const ResourceSearch = ({value, onChange, onButtonPress, formOptions}) => {
 };
 
 ResourceSearch.propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.object,
     onChange: PropTypes.func.isRequired,
     onButtonPress: PropTypes.func.isRequired,
     formOptions: PropTypes.object.isRequired

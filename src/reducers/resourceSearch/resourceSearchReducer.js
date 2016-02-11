@@ -15,16 +15,16 @@ const fieldValidation = require('../../lib/fieldValidation').default;
  * ## formValidation
  * @param {Object} state - the Redux state object
  *
- * As there are only two fields, the form is valid if they are
+ * As there is only one field, the form is valid if it is
  */
-export default function formValidation (state) {
+function formValidation (state) {
     if (state.form.fields.search != ''
         &&
         !state.form.fields.searchHasError
-       ) {
-      return state.setIn(['form','isValid'],true);
+    ) {
+        return state.setIn(['form','isValid'], true);
     } else {
-      return state.setIn(['form','isValid'],false);
+        return state.setIn(['form','isValid'], false);
     }
 }
 
@@ -59,12 +59,7 @@ export default function resourceSearchReducer(state = initialState, action) {
             console.log("return state", returnState.form.fields.searchHasError);
 
             return returnState;
-
-            // return state.setIn(["form", "fields", "search"], "RAWR");
-
         default:
-            console.log('unhandled action');
+            return state;
     }
-
-    return state;
 }
