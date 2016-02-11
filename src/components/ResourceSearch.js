@@ -7,7 +7,9 @@
 const React = require('react-native');
 const {
     View,
-    PropTypes
+    PropTypes,
+    Image,
+    Text
 } = React;
 
 /**
@@ -50,6 +52,13 @@ const ResourceSearch = ({value, onChange, onButtonPress, formOptions}) => {
             <Button isDisabled={!formOptions.isValid}
                     onPress={onButtonPress}
             >Search</Button>
+            <Image
+                source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
+                onLoad={ () => { console.log("in onLoad"); } }
+                onError={ () => { console.log("in onError"); } }
+                onProgress={ () => { console.log("in onProgress"); } }
+              />
+            <Text>did you see the image?</Text>
         </View>
     );
 };
