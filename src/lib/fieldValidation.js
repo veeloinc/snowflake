@@ -25,6 +25,22 @@ const emailConstraints = {
   }
 };
 
+
+
+/**
+* ## number validation rule
+* read the message.. ;)
+*/
+const numberPattern = /^[0-9]{0,3}$/;
+const numberConstraints = {
+  number: {
+    format: {
+      pattern: numberPattern,
+      message: "must be a number (up to 999)"
+    }
+  }
+};
+
 /**
 * ## username validation rule
 * read the message.. ;)
@@ -69,8 +85,21 @@ const passwordAgainConstraints = {
  */
 export default function fieldValidation(state, action ) {
   const {field, value} = action.payload;
-  
+
+  console.log("confusing", field, value);
+
   switch(field) {
+
+  case("search"):
+    console.log("in search validator");
+    let validNumber = _.isUndefined(validate({number: value},
+                                             numberConstraints));
+    if (validNumber) {
+      return state.setIn(['form', 'fields', 'searchHasError'], false);
+    } else {
+      return state.setIn(['form', 'fields', 'searchHasError'], true);
+    }
+
     /**
      * ### username validation
      * set the form field error 

@@ -24,6 +24,7 @@ const Form = Record({
  * The form is set
  */
 var InitialState = Record({
+    currentSearchFilterOnResources: null,
     form: new Form
 });
 export default InitialState;

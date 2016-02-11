@@ -73,7 +73,7 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(creators, dispatch),
         onSearchChange: (value) => {
-            dispatch({type: SEARCH_VALUE_UPDATE, value: value.search})
+            dispatch({type: SEARCH_VALUE_UPDATE, payload: {field:"search", value}})
         },
         onSearch: () => {
             dispatch({type: SEARCH_NOW});
@@ -90,7 +90,7 @@ class App extends Component {
         return (
             <View>
                 <ResourceSearch
-                    value={this.props.resourceSearch.search}
+                    value={this.props.resourceSearch.form.fields}
                     onChange={this.props.onSearchChange}
                     onButtonPress={this.props.onSearch}
                     formOptions={this.props.resourceSearch.form}/>
