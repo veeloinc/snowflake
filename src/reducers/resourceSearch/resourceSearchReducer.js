@@ -1,8 +1,5 @@
 'use strict';
 
-import InitialState from './resourceSearchInitialState';
-
-
 /**
  * ## Imports
  *
@@ -28,10 +25,9 @@ function formValidation (state) {
     }
 }
 
-
-
-
+import InitialState from './resourceSearchInitialState';
 const initialState = new InitialState;
+
 const {
     SEARCH_NOW,
     SEARCH_VALUE_UPDATE
@@ -41,9 +37,9 @@ export default function resourceSearchReducer(state = initialState, action) {
     if (!(state instanceof InitialState)) {
         return initialState.merge(state);
     }
+
     switch(action.type) {
         case SEARCH_NOW:
-            console.log('search now');
             return state.setIn(["currentSearchFilterOnResources"], state.form.fields.search);
 
         case SEARCH_VALUE_UPDATE:
@@ -59,6 +55,7 @@ export default function resourceSearchReducer(state = initialState, action) {
             console.log("return state", returnState.form.fields.searchHasError);
 
             return returnState;
+
         default:
             return state;
     }

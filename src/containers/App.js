@@ -87,6 +87,11 @@ function mapDispatchToProps(dispatch) {
  */
 class App extends Component {
     render() {
+        let content = [
+            {name: 'party', value: 'yes'},
+            {name: 'marty', value: 'sorta'},
+            {name: 'farty', value: 'what'}
+        ];
         return (
             <View>
                 <ResourceSearch
@@ -94,7 +99,8 @@ class App extends Component {
                     onChange={this.props.onSearchChange}
                     onButtonPress={this.props.onSearch}
                     formOptions={this.props.resourceSearch.form}/>
-                <ResourceCatalog/>
+                <ResourceCatalog content={content}
+                                 filter={this.props.resourceSearch.currentSearchFilterOnResources}/>
             </View>
         );
     }
