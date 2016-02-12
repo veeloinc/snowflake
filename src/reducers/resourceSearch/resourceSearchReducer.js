@@ -52,7 +52,7 @@ export default function resourceSearchReducer(state = initialState, action) {
             //        console.log('err', err);
             //    });
             let url = 'https://www.google.com';
-            console.log('Linking is', Linking);
+            console.log('Linking is', LinkingIOS);
             LinkingIOS.canOpenURL(url)
                 .then(supported => {
                     if (!supported) {
