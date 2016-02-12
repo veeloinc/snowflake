@@ -26,6 +26,7 @@ import ResourceSearch from '../components/ResourceSearch';
  */
 import * as deviceActions from '../reducers/device/deviceActions';
 import * as globalActions from '../reducers/global/globalActions';
+import * as resourceSearchActions from '../reducers/resourceSearch/resourceSearchActions';
 
 import React,
 {
@@ -50,7 +51,8 @@ const {
  */
 const actions = [
     deviceActions,
-    globalActions
+    globalActions,
+    resourceSearchActions
 ];
 
 import ErrorAlert from '../components/ErrorAlert';
@@ -362,7 +364,7 @@ class App extends Component {
                 <ResourceSearch
                     value={this.props.resourceSearch.form.fields}
                     onChange={this.props.onSearchChange}
-                    onButtonPress={this.props.onSearch}
+                    onButtonPress={this.props.actions.doFetch}
                     formOptions={this.props.resourceSearch.form}/>
                 <ResourceCatalog content={content}
                                  filter={this.props.resourceSearch.currentSearchFilterOnResources}/>

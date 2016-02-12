@@ -25,6 +25,7 @@ const Form = Record({
  */
 var InitialState = Record({
     currentSearchFilterOnResources: null,
+    currentLinkIndex: 0,
     form: new Form
 });
 export default InitialState;

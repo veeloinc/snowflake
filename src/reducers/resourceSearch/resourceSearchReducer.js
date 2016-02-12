@@ -43,25 +43,28 @@ export default function resourceSearchReducer(state = initialState, action) {
     }
 
     switch(action.type) {
+        //case URL_DOWNLOAD_SUCCESS:
+        //    state = state.set('currentLinkIndex', state.currentLinkIndex + 1);
+        //    // fall through to SEARCH_NOW
         case SEARCH_NOW:
-            //fetch('https://www.google.com')
-            //    .then((resp) => {
-            //        console.log('resp', resp);
+            //let url = links[state.currentLinkIndex];
+            //fetch(url).then((resp) => {
+            //    console.log('successful request', resp);
+            //    dispatch({type: URL_DOWNLOAD_SUCCESS})
+            //}).catch((err) => {
+            //    console.log('failed request', err);
+            //});
+            //let url = 'https://www.google.com';
+            //console.log('Linking is', LinkingIOS);
+            //LinkingIOS.canOpenURL(url)
+            //    .then(supported => {
+            //        if (!supported) {
+            //            console.log('Can\'t handle url: ' + url);
+            //        } else {
+            //            return LinkingIOS.openURL(url);
+            //        }
             //    })
-            //    .catch((err) => {
-            //        console.log('err', err);
-            //    });
-            let url = 'https://www.google.com';
-            console.log('Linking is', LinkingIOS);
-            LinkingIOS.canOpenURL(url)
-                .then(supported => {
-                    if (!supported) {
-                        console.log('Can\'t handle url: ' + url);
-                    } else {
-                        return LinkingIOS.openURL(url);
-                    }
-                })
-                .catch(err => console.error('An error occurred', err));
+            //    .catch(err => console.error('An error occurred', err));
 
             //Linking.openURL(url).catch(err => console.error('An error occurred', err));
             return state.setIn(["currentSearchFilterOnResources"], state.form.fields.search);
