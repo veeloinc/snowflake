@@ -36,7 +36,8 @@ import React,
     Image,
     Component,
     StyleSheet,
-    View
+    View,
+    ScrollView
 }
     from 'react-native';
 
@@ -296,26 +297,6 @@ var RNFSApp = React.createClass({
     }
 });
 
-var styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#F5FCFF',
-    },
-    button: {
-        height: 32,
-        backgroundColor: '#CCCCCC',
-    },
-    text: {
-        fontSize: 16,
-        textAlign: 'center',
-        margin: 10,
-    },
-    image: {
-        width: 100,
-        height: 100,
-    },
-});
-
 /**
  *  Save all state as props (MC: ?!)
  */
@@ -349,6 +330,92 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
+
+
+var styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#F5FCFF',
+    },
+    button: {
+        height: 32,
+        backgroundColor: '#CCCCCC',
+    },
+    text: {
+        fontSize: 16,
+        textAlign: 'center',
+        margin: 10,
+    },
+    image: {
+        width: 100,
+        height: 100,
+    },
+    screenHeaderContainer: {
+        backgroundColor: '#CCCCCC',
+        borderBottomColor: '#333333',
+        borderBottomWidth: 3,
+        paddingBottom: 3,
+        paddingTop: 25,
+        flexDirection: 'row',
+    },
+    screenHeaderText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        flex: 1
+    },
+    screenHeaderSideText: {
+        width: 50,
+        color: '#0096FF',
+        fontSize: 15,
+    },
+
+
+    mainScrollContainer: {
+        marginTop: 10,
+        marginBottom: 30,
+    },
+
+
+    buttonBar: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 10
+    },
+    buttonBarButton: {
+        backgroundColor: '#0096FF',
+        width: 100,
+        padding: 10,
+        borderWidth: 2,
+        borderColor: '#0096FF'
+    },
+    buttonBarButtonActive: {
+        backgroundColor: 'white',
+    },
+
+    buttonBarText: {
+        color: '#FFFFFF',
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
+    buttonBarTextActive: {
+        color: '#0096FF'
+    },
+    buttonBarButtonLeft: {
+        borderTopLeftRadius: 6,
+        borderBottomLeftRadius: 6
+    },
+    buttonBarButtonCenter: {
+    },
+    buttonBarButtonRight: {
+        borderTopRightRadius: 6,
+        borderBottomRightRadius: 6
+    },
+
+
+});
+
 /**
  * ## App class
  */
@@ -361,6 +428,59 @@ class App extends Component {
         ];
         return (
             <View>
+                <View style={ styles.screenHeaderContainer }>
+                    <Text style={ styles.screenHeaderSideText}></Text>
+                    <Text style={ styles.screenHeaderText }>Bookmarks</Text>
+                    <Text style={ styles.screenHeaderSideText}>Select</Text>
+                </View>
+
+                <ScrollView style={ styles.mainScrollContainer }>
+                    <View style={ styles.buttonBar }>
+                        <View style={[ styles.buttonBarButton, styles.buttonBarButtonLeft, styles.buttonBarButtonActive ]}>
+                            <Text style={[ styles.buttonBarText, styles.buttonBarTextActive ]}>Left</Text>
+                        </View>
+                        <View style={[ styles.buttonBarButton, styles.buttonBarButtonCenter ]}>
+                            <Text style={ styles.buttonBarText }>Center</Text>
+                        </View>
+                        <View style={[ styles.buttonBarButton, styles.buttonBarButtonRight ]}>
+                            <Text style={ styles.buttonBarText }>Right</Text>
+                        </View>
+                    </View>
+                    <View>
+
+                        <View style={ styles.contentListHeader }>
+                            <Text>Recently Bookmarked</Text>
+                        </View>
+                        <View style={ styles.contentListItem }>
+                            <Text>Here's a Pak Name</Text>
+                        </View>
+                        <View style={ styles.contentListItem }>
+                            <Text>Here's a Pak Name</Text>
+                        </View>
+
+                        <View style={ styles.contentListHeader }>
+                            <Text>Recently Bookmarked</Text>
+                        </View>
+                        <View style={ styles.contentListItem }>
+                            <Text>Here's a Pak Name</Text>
+                        </View>
+                        <View style={ styles.contentListItem }>
+                            <Text>Here's a Pak Name</Text>
+                        </View>
+
+                        <View style={ styles.contentListHeader }>
+                            <Text>Recently Bookmarked</Text>
+                        </View>
+                        <View style={ styles.contentListItem }>
+                            <Text>Here's a Pak Name</Text>
+                        </View>
+                        <View style={ styles.contentListItem }>
+                            <Text>Here's a Pak Name</Text>
+                        </View>
+
+                    </View>
+                </ScrollView>
+
                 <ResourceSearch
                     value={this.props.resourceSearch.form.fields}
                     onChange={this.props.onSearchChange}
@@ -368,7 +488,6 @@ class App extends Component {
                     formOptions={this.props.resourceSearch.form}/>
                 <ResourceCatalog content={content}
                                  filter={this.props.resourceSearch.currentSearchFilterOnResources}/>
-                <RNFSApp/>
             </View>
         );
     }
